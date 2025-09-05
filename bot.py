@@ -1,8 +1,14 @@
+import os
+import sys
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
-# Вставь сюда свой токен
-TOKEN = "7527317105:AAEdPTJ8onKql05ofDsFrslUCgMxKiFwxz8"
+# TOKEN берём из переменной окружения BOT_TOKEN
+TOKEN = os.getenv("BOT_TOKEN")
+if not TOKEN:
+    print("Ошибка: переменная окружения BOT_TOKEN не установлена.")
+    print("Локально можно установить её перед запуском (см. инструкции в комментариях).")
+    sys.exit(1)
 
 # ---------------------------
 # Меню (твоя структура)
